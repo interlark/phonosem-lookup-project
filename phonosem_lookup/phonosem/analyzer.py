@@ -14,8 +14,8 @@ class PhonosemanticAnalyzer:
     def __init__(self, sound_letters_frequency_file, sound_letters_significance_file):
         """
         Инициализация фоносемантического анализатора.
-        :param sound_letters_frequency_file: таблица частотности звукобукв
-        :param sound_letters_significance_file: таблица значимости звукобукв
+        :param sound_letters_frequency_file: Таблица частотности звукобукв.
+        :param sound_letters_significance_file: Таблица значимости звукобукв.
         """
         self.sound_letter_significance_list = read_csv(sound_letters_significance_file)
         self.sound_letter_frequency_list = read_csv(sound_letters_frequency_file)
@@ -56,11 +56,20 @@ class PhonosemanticAnalyzer:
         :param stresses: список индексов ударных букв
         :return: список фоносемантических значений
         """
+
+        sound_word = self.sound_letter_extractor.extract(word, stresses)
+        return self.analyze_sound_word(sound_word)
+
+    def analyze_sound_word(self, sound_word):
+        """
+        Фоносемантический анализ звуко-слова.
+        :param sound_word: звуко-слово
+        :return: список фоносемантических значений
+        """
         significance_values = []
         frequencies_values = []
         stressed_letters_indexes = []
 
-        sound_word = self.sound_letter_extractor.extract(word, stresses)
         for letter_index, sound_letter in enumerate(sound_word):
             if len(sound_letter) > 1 and sound_letter[0] in SoundLetter.VOWELS and sound_letter[1] == '\'':
                 stressed_letters_indexes.append(letter_index)

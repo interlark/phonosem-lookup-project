@@ -10,9 +10,9 @@ class SoundLetterExtractor:
     def extract(input_word, stresses=None):
         """
         Метод извлечения звуко-слова (набора звуко-букв) из слова.
-        :param input_word: слово
-        :param stresses: массив индексов ударных букв
-        :return: звуко-слово
+        :param input_word: Слово.
+        :param stresses: Массив индексов ударных букв.
+        :return: Звуко-слово.
         """
         input_word = input_word.lower()
         if stresses is None or not isinstance(stresses, list):
