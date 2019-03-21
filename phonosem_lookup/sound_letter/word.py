@@ -28,7 +28,7 @@ class SoundWord:
 
     def __iter__(self):
         pattern = re.compile(r'[а-яё]\'?')
-        word = self.as_sound_word()
+        word = self.as_sound_word() if not self.sound_word else self.sound_word
         for match in re.finditer(pattern, word):
             yield match.group()
 
@@ -41,3 +41,9 @@ class SoundWord:
             class_name=self.__class__.__name__,
             word=self.word,
             sound_word=word)
+
+    @classmethod
+    def from_sound_word(cls, sound_word):
+        ret = cls(None, None)
+        ret.sound_word = sound_word
+        return ret
