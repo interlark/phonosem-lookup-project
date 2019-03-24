@@ -1,3 +1,4 @@
 .venv
 .idea
 *.h5
+.ipynb_checkpoints
