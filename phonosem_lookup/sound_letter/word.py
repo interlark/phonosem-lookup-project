@@ -9,6 +9,7 @@ class SoundWord:
     def __init__(self, word, stresses):
         self.word = word
         self.stresses = stresses
+        self.sound_word = None
 
     def as_sound_word(self):
         letters_chain = []
