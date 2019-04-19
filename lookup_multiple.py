@@ -5,7 +5,7 @@
 #  python3 lookup_multiple.py data/sound_letters_frequency.csv \
 #  data/sound_letters_significance.csv \
 #  current_noun_6_scaled.h5 \
-#  --feature_idx 4 --feature_idx 5 --direction LEFT --direction RIGHT 
+#  --feature_idx 4 --feature_idx 5 --direction LEFT --direction RIGHT \
 #  --skip-inappropriate
 
 import argparse

@@ -1,5 +1,6 @@
 from phonosem_lookup.sound_letter.extractor import SoundLetterExtractor
 from phonosem_lookup.sound_letter.letter import SoundLetter
+from phonosem_lookup.sound_letter.word import SoundWord
 from phonosem_lookup.utils import read_csv
 import re
 
@@ -69,7 +70,10 @@ class PhonosemanticAnalyzer:
         significance_values = []
         frequencies_values = []
         stressed_letters_indexes = []
-
+        
+        if isinstance(sound_word, str):
+            sound_word = SoundWord.from_sound_word(sound_word)
+        
         for letter_index, sound_letter in enumerate(sound_word):
             if len(sound_letter) > 1 and sound_letter[0] in SoundLetter.VOWELS and sound_letter[1] == '\'':
                 stressed_letters_indexes.append(letter_index)
