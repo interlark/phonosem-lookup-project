@@ -14,7 +14,7 @@ pip3 install -r requirements.txt
 
 ##### Загрузка словаря
 ```bash
-wget -P data https://www.dropbox.com/s/1gl7ltx3kkg1dro/pronouncing.dict
+wget -P data https://www.dropbox.com/s/1gl7ltx3kkg1dro/zaliznyak.dict
 ```
 
 ##### Подготовка данных
